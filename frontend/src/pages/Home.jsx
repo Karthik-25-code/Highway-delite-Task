@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/experiences`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}experiences`);
         if (res.data?.success) {
           setExps(res.data.result);
           setFilteredExps(res.data.result);
@@ -49,11 +49,11 @@ export default function Home() {
                 key={e._id}
                 className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-200 flex flex-col"
               >
-               <img
-  src={e.image.startsWith("http") ? e.image : `${import.meta.env.VITE_BACKEND_URL}${e.image}`}
-  alt={e.name}
-  className="h-48 w-full object-cover"
-/>
+                <img
+                  src={e.image.startsWith("http") ? e.image : `${import.meta.env.VITE_BACKEND_URL}${e.image}`}
+                  alt={e.name}
+                  className="h-48 w-full object-cover"
+                />
 
                 <div className="p-5 flex flex-col flex-grow justify-between">
                   <div>
