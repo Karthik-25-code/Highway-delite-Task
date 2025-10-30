@@ -60,8 +60,7 @@ export const getBooking = async (req, res) => {
 export const postExperience = async (req, res) => {
   try {
     const { name, about, location, dates, cost } = req.body;
-    const image = req.file ? `/uploads/${req.file.filename}` : null;
-
+    const image = req.file ? req.file.path : null; // Cloudinary gives a full URL
     if (!name || !about || !location || !dates || !cost)
       return res.status(400).json({ success: false, message: "Please fill all fields" });
 
