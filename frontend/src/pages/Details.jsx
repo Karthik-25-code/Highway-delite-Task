@@ -59,10 +59,11 @@ export default function Details() {
       {/* Left Section */}
       <div className="lg:col-span-2">
         <img
-          src={`${import.meta.env.VITE_BACKEND_URL}${exp.image}`}
+          src={exp.image.startsWith("http") ? exp.image : `${import.meta.env.VITE_BACKEND_URL}${exp.image}`}
           alt={exp.name}
           className="w-full h-64 object-cover rounded"
         />
+
         <h2 className="text-2xl font-semibold mt-6">{exp.name}</h2>
         <p className="text-gray-600 mt-2">{exp.about}</p>
         <p className="text-sm text-gray-500 mt-1">📍 {exp.location}</p>
@@ -78,11 +79,10 @@ export default function Details() {
                   setSelectedDate(d.date);
                   setSelectedTime("");
                 }}
-                className={`px-3 py-2 rounded border ${
-                  selectedDate === d.date
+                className={`px-3 py-2 rounded border ${selectedDate === d.date
                     ? "bg-yellow-100 border-yellow-400"
                     : "bg-white border-gray-200"
-                }`}
+                  }`}
               >
                 {d.date}
               </button>
@@ -99,11 +99,10 @@ export default function Details() {
                 <button
                   key={i}
                   onClick={() => setSelectedTime(t)}
-                  className={`px-3 py-2 rounded border ${
-                    selectedTime === t
+                  className={`px-3 py-2 rounded border ${selectedTime === t
                       ? "bg-yellow-100 border-yellow-400"
                       : "bg-white border-gray-200"
-                  }`}
+                    }`}
                 >
                   {t}
                 </button>
@@ -147,11 +146,10 @@ export default function Details() {
           <button
             onClick={handleConfirm}
             disabled={!selectedTime}
-            className={`mt-4 w-full py-3 rounded ${
-              selectedTime
+            className={`mt-4 w-full py-3 rounded ${selectedTime
                 ? "bg-yellow-400 hover:bg-yellow-500"
                 : "bg-gray-200 text-gray-400 cursor-not-allowed"
-            }`}
+              }`}
           >
             Confirm
           </button>

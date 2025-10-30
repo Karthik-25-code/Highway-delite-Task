@@ -49,11 +49,12 @@ export default function Home() {
                 key={e._id}
                 className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-200 flex flex-col"
               >
-                <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}${e.image}`}
-                  alt={e.name}
-                  className="h-48 w-full object-cover"
-                />
+               <img
+  src={e.image.startsWith("http") ? e.image : `${import.meta.env.VITE_BACKEND_URL}${e.image}`}
+  alt={e.name}
+  className="h-48 w-full object-cover"
+/>
+
                 <div className="p-5 flex flex-col flex-grow justify-between">
                   <div>
                     <h3 className="font-semibold text-lg text-gray-800">{e.name}</h3>
