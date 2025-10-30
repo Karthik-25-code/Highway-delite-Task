@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}experiences`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/experiences`);
         if (res.data?.success) {
           setExps(res.data.result);
           setFilteredExps(res.data.result);
