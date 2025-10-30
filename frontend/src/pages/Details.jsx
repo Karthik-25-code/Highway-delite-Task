@@ -17,7 +17,7 @@ export default function Details() {
   useEffect(() => {
     const fetchExperience = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/experience/${id}`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}experience/${id}`);
         const data = res.data?.result;
         setExp(data);
         if (data?.dates?.length > 0) {
